@@ -1,0 +1,44 @@
+.cellContainer {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  margin: 1px;
+  border: 1px solid black;
+}
+.boardContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 0 60px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.universeContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.main-head {
+  text-align: center;
+}
+.gridControls {
+  text-align: center;
+}
+.gridControls form {
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+}
+.gridControls form p {
+  margin: 1rem;
+  font-weight: bold;
+}
+.main-contorls {
+  text-align: center;
+  margin: 2rem;
+}
+.main-contorls button {
+  margin: 1rem;
+}
