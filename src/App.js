@@ -1,19 +1,21 @@
 import React from "react";
-import "./styles/index.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Game from "./components/Game";
+import Home from "./components/Home";
 
-// Components
-import Header from "./components/Header.js";
-import GridControls from "./components/GridControls.js";
-import Controls from "./components/Controls";
-
-function App() {
+const App = () => {
   return (
-    <div className="universeContainer">
-      <Header />
-      <GridControls />
-      <Controls />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/game">
+          <Game />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
