@@ -1,9 +1,10 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import StopIcon from "@material-ui/icons/Stop";
+import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
+import StopRoundedIcon from "@material-ui/icons/StopRounded";
 import ClearAllIcon from "@material-ui/icons/ClearAll";
 import FlareIcon from "@material-ui/icons/Flare";
+import SkipNextRoundedIcon from "@material-ui/icons/SkipNextRounded";
 
 const Controls = (props) => {
   return (
@@ -11,10 +12,18 @@ const Controls = (props) => {
       <Button
         variant="contained"
         color="primary"
-        endIcon={props.running ? <StopIcon /> : <PlayArrowIcon />}
+        endIcon={props.running ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />}
         onClick={props.startGame}
       >
         {props.running ? "Stop" : "Start"}
+      </Button>
+      <Button
+        variant="contained"
+        color="Primary"
+        endIcon={<SkipNextRoundedIcon />}
+        onClick={props.steps}
+      >
+        One Step
       </Button>
       <Button
         variant="contained"
@@ -24,6 +33,7 @@ const Controls = (props) => {
       >
         Random
       </Button>
+
       <Button
         variant="contained"
         color="secondary"

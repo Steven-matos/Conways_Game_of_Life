@@ -6,7 +6,7 @@ import Controls from "./Controls";
 import GridControls from "./GridControls";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import HomeIcon from "@material-ui/icons/Home";
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 
 const operations = [
   [0, 1],
@@ -86,6 +86,31 @@ const Game = () => {
     setGrid(rows);
   };
 
+  const steps = () => {
+    setGenerations(++generations);
+    setGrid((g) => {
+      return produce(g, (gridCopy) => {
+        for (let i = 0; i < size[0]; i++) {
+          for (let k = 0; k < size[1]; k++) {
+            let neighbors = 0;
+            operations.forEach(([x, y]) => {
+              const newI = i + x;
+              const newK = k + y;
+              if (newI >= 0 && newI < size[0] && newK >= 0 && newK < size[1]) {
+                neighbors += g[newI][newK];
+              }
+            });
+            if (neighbors < 2 || neighbors > 3) {
+              gridCopy[i][k] = 0;
+            } else if (g[i][k] === 0 && neighbors === 3) {
+              gridCopy[i][k] = 1;
+            }
+          }
+        }
+      });
+    });
+  };
+
   const clearBoard = () => {
     setGrid(generateEmptyGrid(size[0], size[1]));
     setGenerations(0);
@@ -133,9 +158,10 @@ const Game = () => {
         startGame={startGame}
         randomSet={randomSet}
         clearBoard={clearBoard}
+        steps={steps}
         running={running}
       />
-      <Button variant="contained" color="primary" endIcon={<HomeIcon />}>
+      <Button variant="contained" color="primary" endIcon={<HomeRoundedIcon />}>
         <Link to="/" className="homebtn">
           Back to Home
         </Link>
