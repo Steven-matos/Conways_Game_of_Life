@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       <Particles
         id="tsparticles"
-        height={736}
+        height={732}
         params={{
           background: {
             color: {
