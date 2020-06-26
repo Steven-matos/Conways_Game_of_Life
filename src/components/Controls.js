@@ -11,7 +11,7 @@ const Controls = (props) => {
     <div className="main-contorls">
       <Button
         variant="contained"
-        color="primary"
+        color={props.running ? "secondary" : "primary"}
         endIcon={props.running ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />}
         onClick={props.startGame}
       >
