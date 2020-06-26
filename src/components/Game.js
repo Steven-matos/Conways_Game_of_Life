@@ -28,7 +28,7 @@ const generateEmptyGrid = (numCols, numRows) => {
 };
 
 const Game = () => {
-  const [size, setSize] = useState([25, 25]);
+  const [size, setSize] = useState([15, 15]);
   const [grid, setGrid] = useState(() => {
     return generateEmptyGrid(size[0], size[1]);
   });
@@ -118,6 +118,10 @@ const Game = () => {
 
   return (
     <div className="gameContainer">
+      <span className="mobile-disclaimer">
+        Disclaimer: On mobile max row and column size is 20 any more will
+        display off screen!
+      </span>
       <h1>Steven's Game Adaptation</h1>
       <GridControls
         size={size}
@@ -127,6 +131,7 @@ const Game = () => {
         setGrid={setGrid}
         generations={generations}
       />
+
       <div
         style={{
           display: "grid",
